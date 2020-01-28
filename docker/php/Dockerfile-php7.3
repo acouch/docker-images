@@ -13,4 +13,6 @@ RUN set -x \
  && mkdir -p /run/php \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
+RUN rm /etc/alternatives/php; ln -s /usr/bin/php7.3 /etc/alternatives/php
+
 CMD ["/usr/bin/supervisord"]
